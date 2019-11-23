@@ -1,0 +1,16 @@
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\bin\Debug\netcoreapp2.1\API_ListaCompra.deps.json
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\bin\Debug\netcoreapp2.1\API_ListaCompra.runtimeconfig.json
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\bin\Debug\netcoreapp2.1\API_ListaCompra.runtimeconfig.dev.json
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\bin\Debug\netcoreapp2.1\API_ListaCompra.dll
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\obj\Debug\netcoreapp2.1\API_ListaCompra.csprojAssemblyReference.cache
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\obj\Debug\netcoreapp2.1\API_ListaCompra.RazorAssemblyInfo.cache
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\obj\Debug\netcoreapp2.1\API_ListaCompra.RazorAssemblyInfo.cs
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\obj\Debug\netcoreapp2.1\API_ListaCompra.AssemblyInfoInputs.cache
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\obj\Debug\netcoreapp2.1\API_ListaCompra.AssemblyInfo.cs
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\obj\Debug\netcoreapp2.1\API_ListaCompra.RazorTargetAssemblyInfo.cache
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\bin\Debug\netcoreapp2.1\API_ListaCompra.pdb
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\obj\Debug\netcoreapp2.1\API_ListaCompra.dll
+C:\Users\dezje\Documents\API_ListaCompra\API_ListaCompra\obj\Debug\netcoreapp2.1\API_ListaCompra.pdb
