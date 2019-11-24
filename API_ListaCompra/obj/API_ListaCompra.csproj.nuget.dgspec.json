@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dezje\\Documents\\API_ListaCompra\\API_ListaCompra\\API_ListaCompra.csproj": {}
+    "C:\\Users\\dezje\\Documents\\GitHub\\API.NET\\API_ListaCompra\\API_ListaCompra.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dezje\\Documents\\API_ListaCompra\\API_ListaCompra\\API_ListaCompra.csproj": {
+    "C:\\Users\\dezje\\Documents\\GitHub\\API.NET\\API_ListaCompra\\API_ListaCompra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dezje\\Documents\\API_ListaCompra\\API_ListaCompra\\API_ListaCompra.csproj",
+        "projectUniqueName": "C:\\Users\\dezje\\Documents\\GitHub\\API.NET\\API_ListaCompra\\API_ListaCompra.csproj",
         "projectName": "API_ListaCompra",
-        "projectPath": "C:\\Users\\dezje\\Documents\\API_ListaCompra\\API_ListaCompra\\API_ListaCompra.csproj",
+        "projectPath": "C:\\Users\\dezje\\Documents\\GitHub\\API.NET\\API_ListaCompra\\API_ListaCompra.csproj",
         "packagesPath": "C:\\Users\\dezje\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dezje\\Documents\\API_ListaCompra\\API_ListaCompra\\obj\\",
+        "outputPath": "C:\\Users\\dezje\\Documents\\GitHub\\API.NET\\API_ListaCompra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dezje\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -92,6 +92,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.1.10, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[2.1.1, )"
             }
           },
           "imports": [
