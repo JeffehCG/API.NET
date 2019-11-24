@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using API_ListaCompra.Models;
 using API_ListaCompra.Aplicacao;
@@ -50,6 +51,7 @@ namespace API_ListaCompra.Controllers
 
         [HttpPut]
         [Route("alterar")]
+        [Authorize]
         public IActionResult AlterarUsuario([FromBody]Usuario usuarioEnviado)
         {
             try
@@ -72,6 +74,7 @@ namespace API_ListaCompra.Controllers
 
         [HttpPost]
         [Route("buscar")]
+        [Authorize]
         public IActionResult GetUsuario([FromBody]string login)
         {
             try
@@ -104,6 +107,7 @@ namespace API_ListaCompra.Controllers
 
         [HttpGet]
         [Route("listar")]
+        [Authorize]
         public IActionResult Listarusuarios()
         {
             try
@@ -128,6 +132,7 @@ namespace API_ListaCompra.Controllers
 
         [HttpDelete]
         [Route("deletar")]
+        [Authorize]
         public IActionResult DeleteUserByEmail([FromBody]string login)
         {
             try
