@@ -63,7 +63,7 @@ namespace API_ListaCompra.Models
 
                 entity.Property(e => e.Comprado)
                     .HasColumnName("comprado")
-                    .HasColumnType("tinyint(1)");
+                    .HasColumnType("bool(1)");
 
                 entity.Property(e => e.IdLista)
                     .HasColumnName("id_lista")

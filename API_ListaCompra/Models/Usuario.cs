@@ -23,6 +23,6 @@ namespace API_ListaCompra.Models
         [MaxLength(50, ErrorMessage = "Senha deve conter no máximo 50 caracteres")]
         public string Senha { get; set; }
 
-        public ICollection<Listacompras> Listacompras { get; set; }
+        public ICollection<Listacompras> Listacompras { get; set;}
     }
 }

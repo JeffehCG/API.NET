@@ -26,13 +26,13 @@ namespace API_ListaCompra.Controllers
             _config = Configuration;
         }
 
-        private bool ValidarUsuario( Usuario usuario)
+        private Usuario ValidarUsuario( Usuario usuario)
         {
             try
             {
                 if (usuario == null)
                 {
-                    return false;
+                    return null;
                 }
                 else
                 {
@@ -41,22 +41,22 @@ namespace API_ListaCompra.Controllers
                     {
                         if(resposta.Senha == usuario.Senha)
                         {
-                            return true;
+                            return resposta;
                         }
                         else
                         {
-                            return false;
+                            return null;
                         }
                     }
                     else
                     {
-                        return false;
+                        return null;
                     }
                 }
             }
             catch (Exception)
             {
-                return false;
+                return null;
             }
 
         }
@@ -85,11 +85,11 @@ namespace API_ListaCompra.Controllers
         [Route("login")]
         public IActionResult Login([FromBody]Usuario login)
         {
-            bool resultado = ValidarUsuario(login);
-            if (resultado)
+            Usuario resultado = ValidarUsuario(login);
+            if (resultado != null)
             {
                 var tokenString = GerarToken();
-                return Ok(new Token { TokenJwt = tokenString, DataTokenGerado = DateTime.Now });
+                return Ok(new Token { TokenJwt = tokenString, DataTokenGerado = DateTime.Now, Usuario = resultado.Login, Identificador = resultado.Id });
             }
             else
             {
