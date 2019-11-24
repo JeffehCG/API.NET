@@ -13,11 +13,11 @@ namespace API_ListaCompra.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ListaCompraController : ControllerBase
+    public class ProdutoController : ControllerBase
     {
 
         private APIContext _contexto;
-        public ListaCompraController(APIContext contexto)
+        public ProdutoController(APIContext contexto)
         {
             _contexto = contexto;
         }
@@ -26,17 +26,17 @@ namespace API_ListaCompra.Controllers
         [Route("inserir")]
         [Authorize]
 
-        public IActionResult InserirLista([FromBody]Listacompras listaEnviada)
+        public IActionResult InserirProduto([FromBody]Produto produtoEnviado)
         {
             try
             {
-                if (!ModelState.IsValid || listaEnviada == null)
+                if (!ModelState.IsValid || produtoEnviado == null)
                 {
                     return BadRequest("Dados inválidos! Tente novamente.");
                 }
                 else
                 {
-                    var resposta = new ListaCompraAplicacao(_contexto).setLista(listaEnviada);
+                    var resposta = new ProdutoAplicacao(_contexto).setProduto(produtoEnviado);
                     return Ok(resposta);
                 }
             }
@@ -49,17 +49,17 @@ namespace API_ListaCompra.Controllers
         [HttpPut]
         [Route("alterar")]
         [Authorize]
-        public IActionResult AlterarLista([FromBody]Listacompras listaEnviada)
+        public IActionResult AlterarProduto([FromBody]Produto produtoEnviado)
         {
             try
             {
-                if (!ModelState.IsValid || listaEnviada == null)
+                if (!ModelState.IsValid || produtoEnviado == null)
                 {
                     return BadRequest("Dados inválidos! Tente novamente.");
                 }
                 else
                 {
-                    var resposta = new ListaCompraAplicacao(_contexto).UpdateLista(listaEnviada);
+                    var resposta = new ProdutoAplicacao(_contexto).UpdateProduto(produtoEnviado);
                     return Ok(resposta);
                 }
             }
@@ -72,17 +72,17 @@ namespace API_ListaCompra.Controllers
         [HttpDelete]
         [Route("deletar")]
         [Authorize]
-        public IActionResult DeleteLista([FromBody]Listacompras lista)
+        public IActionResult DeleteProduto([FromBody]Produto produto)
         {
             try
             {
-                if (lista == null)
+                if (produto == null)
                 {
                     return BadRequest("Dados inválidos! Tente novamente.");
                 }
                 else
                 {
-                    var resposta = new ListaCompraAplicacao(_contexto).DeleteLista(lista);
+                    var resposta = new ProdutoAplicacao(_contexto).DeleteProduto(produto);
                     return Ok(resposta);
                 }
             }
@@ -95,20 +95,20 @@ namespace API_ListaCompra.Controllers
         [HttpGet]
         [Route("listar")]
         [Authorize]
-        public IActionResult ListarListasUsuarios(int idusuario)
+        public IActionResult ListarProdutosLista(int idLista)
         {
             try
             {
-                var listasUsuarios = new ListaCompraAplicacao(_contexto).getListasUsuario(idusuario);
+                var produtosLista = new ProdutoAplicacao(_contexto).getListaProdutos(idLista);
 
-                if (listasUsuarios != null)
+                if (produtosLista != null)
                 {
-                    var resposta = JsonConvert.SerializeObject(listasUsuarios);
+                    var resposta = JsonConvert.SerializeObject(produtosLista);
                     return Ok(resposta);
                 }
                 else
                 {
-                    return BadRequest("Nenhuma lista cadastrado!");
+                    return BadRequest("Nenhum produto cadastrado!");
                 }
             }
             catch (Exception)

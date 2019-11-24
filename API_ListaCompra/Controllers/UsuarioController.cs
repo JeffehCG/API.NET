@@ -133,7 +133,7 @@ namespace API_ListaCompra.Controllers
         [HttpDelete]
         [Route("deletar")]
         [Authorize]
-        public IActionResult DeleteUserByEmail([FromBody]string login)
+        public IActionResult DeleteUsuario([FromBody]string login)
         {
             try
             {

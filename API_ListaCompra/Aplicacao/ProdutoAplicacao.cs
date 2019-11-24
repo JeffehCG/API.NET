@@ -6,30 +6,30 @@ using API_ListaCompra.Models;
 
 namespace API_ListaCompra.Aplicacao
 {
-    public class ListaCompraAplicacao
+    public class ProdutoAplicacao
     {
 
         private APIContext _contexto;
-        public ListaCompraAplicacao(APIContext contexto)
+        public ProdutoAplicacao(APIContext contexto)
         {
             _contexto = contexto;
         }
 
-        public string setLista(Listacompras lista)
+        public string setProduto(Produto produto)
         {
             try
             {
-                if (lista != null)
+                if (produto != null)
                 {
-                    _contexto.Add(lista);
+                    _contexto.Add(produto);
                     _contexto.SaveChanges();
 
-                    return "Lista cadastrada com sucesso!";
+                    return "Produto cadastrado com sucesso!";
 
                 }
                 else
                 {
-                    return "Lista invalida!";
+                    return "Produto invalido!";
                 }
             }
             catch (Exception)
@@ -38,63 +38,63 @@ namespace API_ListaCompra.Aplicacao
             }
         }
 
-        public string UpdateLista(Listacompras lista)
+        public string UpdateProduto(Produto produto)
         {
             try
             {
-                if (lista != null)
+                if (produto != null)
                 {
-                    _contexto.Update(lista);
+                    _contexto.Update(produto);
                     _contexto.SaveChanges();
 
-                    return "Lista alterada com sucesso!";
+                    return "Produto alterado com sucesso!";
+
                 }
                 else
                 {
-                    return "Lista inválida!";
-                }
-            }
-            catch (Exception)
-            {
-                return "Não foi possível se comunicar com a base de dados!";
-            }
-        }
-
-        public string DeleteLista(Listacompras lista)
-        {
-            try
-            {
-                if (lista == null)
-                {
-                    return "Lista invalida! Por favor tente novamente.";
-                }
-                else
-                {
-                    _contexto.Produto.RemoveRange(_contexto.Produto.Where(x => x.IdLista == lista.Id));
-                    _contexto.Listacompras.Remove(lista);
-                    _contexto.SaveChanges();
-
-                    return "Lista deletada com sucesso!";
+                    return "Produto inválido!";
                 }
             }
             catch (Exception ex)
-            {   
-                
+            {
+                return "Não foi possível se comunicar com a base de dados! " + ex;
+            }
+        }
+
+        public string DeleteProduto(Produto produto)
+        {
+            try
+            {
+                if (produto == null)
+                {
+                    return "Produto invalido! Por favor tente novamente.";
+                }
+                else
+                {
+                    _contexto.Produto.Remove(produto);
+                    _contexto.SaveChanges();
+
+                    return "Produto deletada com sucesso!";
+                }
+            }
+            catch (Exception ex)
+            {
+
                 return "Não foi possível se comunicar com a base de dados!" + ex;
             }
         }
 
-        public List<Listacompras> getListasUsuario(int idUsuario)
+        public List<Produto> getListaProdutos(int idLista)
         {
-            List<Listacompras> listasUsuarios = new List<Listacompras>();
+            List<Produto> listaProdutos = new List<Produto>();
             try
             {
 
-                listasUsuarios = _contexto.Listacompras.Where(x => x.IdUsuario == idUsuario).ToList();
+                listaProdutos = _contexto.Produto.Where(x => x.IdLista == idLista).ToList();
 
-                if (listasUsuarios != null)
+                if (listaProdutos != null)
                 {
-                    return listasUsuarios;
+                    return listaProdutos;
                 }
                 else
                 {
