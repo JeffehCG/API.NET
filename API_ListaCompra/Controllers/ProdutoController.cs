@@ -37,7 +37,7 @@ namespace API_ListaCompra.Controllers
                 else
                 {
                     var resposta = new ProdutoAplicacao(_contexto).setProduto(produtoEnviado);
-                    return Ok(resposta);
+                    return Ok(JsonConvert.SerializeObject(resposta));
                 }
             }
             catch (Exception)
@@ -60,7 +60,7 @@ namespace API_ListaCompra.Controllers
                 else
                 {
                     var resposta = new ProdutoAplicacao(_contexto).UpdateProduto(produtoEnviado);
-                    return Ok(resposta);
+                    return Ok(JsonConvert.SerializeObject(resposta));
                 }
             }
             catch (Exception)
@@ -72,19 +72,13 @@ namespace API_ListaCompra.Controllers
         [HttpDelete]
         [Route("deletar")]
         [Authorize]
-        public IActionResult DeleteProduto([FromBody]Produto produto)
+        public IActionResult DeleteProduto(int id)
         {
             try
             {
-                if (produto == null)
-                {
-                    return BadRequest("Dados inválidos! Tente novamente.");
-                }
-                else
-                {
-                    var resposta = new ProdutoAplicacao(_contexto).DeleteProduto(produto);
-                    return Ok(resposta);
-                }
+ 
+                var resposta = new ProdutoAplicacao(_contexto).DeleteProduto(id);
+                return Ok(JsonConvert.SerializeObject(resposta));
             }
             catch (Exception)
             {

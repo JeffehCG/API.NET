@@ -60,22 +60,16 @@ namespace API_ListaCompra.Aplicacao
             }
         }
 
-        public string DeleteLista(Listacompras lista)
+        public string DeleteLista(int id)
         {
             try
             {
-                if (lista == null)
-                {
-                    return "Lista invalida! Por favor tente novamente.";
-                }
-                else
-                {
-                    _contexto.Produto.RemoveRange(_contexto.Produto.Where(x => x.IdLista == lista.Id));
-                    _contexto.Listacompras.Remove(lista);
-                    _contexto.SaveChanges();
+                var lista = getLista(id);
+                _contexto.Produto.RemoveRange(_contexto.Produto.Where(x => x.IdLista == lista.Id));
+                _contexto.Listacompras.Remove(lista);
+                _contexto.SaveChanges();
 
                     return "Lista deletada com sucesso!";
-                }
             }
             catch (Exception ex)
             {   
@@ -95,6 +89,30 @@ namespace API_ListaCompra.Aplicacao
                 if (listasUsuarios != null)
                 {
                     return listasUsuarios;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public Listacompras getLista(int id)
+        {
+            Listacompras primeiraLista = new Listacompras();
+
+            try
+            {
+                var lista = _contexto.Listacompras.Where(x => x.Id == id).ToList();
+                primeiraLista = lista.FirstOrDefault();
+
+                if (primeiraLista != null)
+                {
+                    return primeiraLista;
                 }
                 else
                 {

@@ -36,7 +36,8 @@ namespace API_ListaCompra.Controllers
                 }
                 else
                 {
-                    var resposta = new ListaCompraAplicacao(_contexto).setLista(listaEnviada);
+                    var resposta = JsonConvert.SerializeObject(new ListaCompraAplicacao(_contexto).setLista(listaEnviada));
+
                     return Ok(resposta);
                 }
             }
@@ -60,7 +61,7 @@ namespace API_ListaCompra.Controllers
                 else
                 {
                     var resposta = new ListaCompraAplicacao(_contexto).UpdateLista(listaEnviada);
-                    return Ok(resposta);
+                    return Ok(JsonConvert.SerializeObject(resposta));
                 }
             }
             catch (Exception)
@@ -72,19 +73,13 @@ namespace API_ListaCompra.Controllers
         [HttpDelete]
         [Route("deletar")]
         [Authorize]
-        public IActionResult DeleteLista([FromBody]Listacompras lista)
+        public IActionResult DeleteLista(int id)
         {
             try
             {
-                if (lista == null)
-                {
-                    return BadRequest("Dados inválidos! Tente novamente.");
-                }
-                else
-                {
-                    var resposta = new ListaCompraAplicacao(_contexto).DeleteLista(lista);
-                    return Ok(resposta);
-                }
+
+                var resposta = new ListaCompraAplicacao(_contexto).DeleteLista(id);
+                return Ok(JsonConvert.SerializeObject(resposta));
             }
             catch (Exception)
             {

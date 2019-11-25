@@ -40,7 +40,7 @@ namespace API_ListaCompra.Controllers
                 else
                 {
                     var resposta = new UsuarioAplicacao(_contexto).setUsuario(usuarioEnviado);
-                    return Ok(resposta);
+                    return Ok();
                 }
             }
             catch (Exception)

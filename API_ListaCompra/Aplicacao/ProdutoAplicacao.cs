@@ -61,21 +61,39 @@ namespace API_ListaCompra.Aplicacao
             }
         }
 
-        public string DeleteProduto(Produto produto)
+        public Produto getProduto(int id)
         {
+            Produto primeiroProduto = new Produto();
+
             try
             {
-                if (produto == null)
+                var produto = _contexto.Produto.Where(x => x.Id == id).ToList();
+                primeiroProduto = produto.FirstOrDefault();
+
+                if (primeiroProduto != null)
                 {
-                    return "Produto invalido! Por favor tente novamente.";
+                    return primeiroProduto;
                 }
                 else
                 {
-                    _contexto.Produto.Remove(produto);
-                    _contexto.SaveChanges();
-
-                    return "Produto deletada com sucesso!";
+                    return null;
                 }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public string DeleteProduto(int id)
+        {
+            try
+            {
+                var produto = getProduto(id);
+                _contexto.Produto.Remove(produto);
+                _contexto.SaveChanges();
+
+                return "Produto deletado com sucesso!";
             }
             catch (Exception ex)
             {
